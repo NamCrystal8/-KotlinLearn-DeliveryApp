@@ -9,8 +9,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.deliveryapp.R
 import com.example.deliveryapp.domain.model.Role
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -42,7 +44,7 @@ fun LoginScreen(
         ) {
             // Title
             Text(
-                text = "🚚 Delivery App",
+                text = stringResource(R.string.login_title),
                 fontSize = 32.sp,
                 fontWeight = FontWeight.Bold,
                 color = MaterialTheme.colorScheme.primary
@@ -51,7 +53,7 @@ fun LoginScreen(
             Spacer(modifier = Modifier.height(8.dp))
             
             Text(
-                text = "Sign in to continue",
+                text = stringResource(R.string.login_subtitle),
                 fontSize = 16.sp,
                 color = MaterialTheme.colorScheme.onSurfaceVariant
             )
@@ -62,7 +64,7 @@ fun LoginScreen(
             OutlinedTextField(
                 value = username,
                 onValueChange = { username = it },
-                label = { Text("Username") },
+                label = { Text(stringResource(R.string.username_label)) },
                 modifier = Modifier.fillMaxWidth(),
                 singleLine = true
             )
@@ -73,7 +75,7 @@ fun LoginScreen(
             OutlinedTextField(
                 value = password,
                 onValueChange = { password = it },
-                label = { Text("Password") },
+                label = { Text(stringResource(R.string.password_label)) },
                 modifier = Modifier.fillMaxWidth(),
                 singleLine = true,
                 visualTransformation = PasswordVisualTransformation(),
@@ -106,7 +108,7 @@ fun LoginScreen(
                         color = MaterialTheme.colorScheme.onPrimary
                     )
                 } else {
-                    Text("Sign In", fontSize = 16.sp)
+                    Text(stringResource(R.string.sign_in_button), fontSize = 16.sp)
                 }
             }
 
@@ -114,7 +116,7 @@ fun LoginScreen(
 
             // Register link
             TextButton(onClick = onNavigateToRegister) {
-                Text("Don't have an account? Register")
+                Text(stringResource(R.string.no_account_register))
             }
         }
     }

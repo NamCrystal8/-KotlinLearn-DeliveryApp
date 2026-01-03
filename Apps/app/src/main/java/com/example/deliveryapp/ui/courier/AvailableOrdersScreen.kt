@@ -10,8 +10,10 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.deliveryapp.R
 import androidx.hilt.navigation.compose.hiltViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -26,10 +28,10 @@ fun AvailableOrdersScreen(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("Available Orders") },
+                title = { Text(stringResource(R.string.available_orders_title)) },
                 navigationIcon = {
                     IconButton(onClick = onBack) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
+                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = stringResource(R.string.back_content_desc))
                     }
                 }
             )
@@ -54,17 +56,17 @@ fun AvailableOrdersScreen(
                 verticalArrangement = Arrangement.Center
             ) {
                 Text(
-                    text = "📭",
+                    text = stringResource(R.string.no_orders_available_emoji),
                     fontSize = 64.sp
                 )
                 Spacer(modifier = Modifier.height(16.dp))
                 Text(
-                    text = "No orders available",
+                    text = stringResource(R.string.no_orders_available_title),
                     fontSize = 20.sp,
                     fontWeight = FontWeight.SemiBold
                 )
                 Text(
-                    text = "Check back later for new delivery requests",
+                    text = stringResource(R.string.check_back_later),
                     fontSize = 14.sp,
                     color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
@@ -107,7 +109,7 @@ private fun OrderCard(
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
                 Text(
-                    text = "Order #${order.id}",
+                    text = stringResource(R.string.order_id_format, order.id),
                     fontWeight = FontWeight.Bold,
                     fontSize = 16.sp
                 )
@@ -121,7 +123,7 @@ private fun OrderCard(
 
             Row {
                 Text(
-                    text = "📍 ",
+                    text = stringResource(R.string.pin_emoji),
                     fontSize = 14.sp
                 )
                 Text(
@@ -134,7 +136,7 @@ private fun OrderCard(
 
             Row {
                 Text(
-                    text = "📍 ",
+                    text = stringResource(R.string.pin_emoji),
                     fontSize = 14.sp
                 )
                 Text(
@@ -149,7 +151,7 @@ private fun OrderCard(
                 onClick = onAccept,
                 modifier = Modifier.fillMaxWidth()
             ) {
-                Text("Accept Order")
+                Text(stringResource(R.string.accept_order_button))
             }
         }
     }

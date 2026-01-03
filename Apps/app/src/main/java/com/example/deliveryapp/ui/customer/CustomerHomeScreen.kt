@@ -9,8 +9,10 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.deliveryapp.R
 import androidx.hilt.navigation.compose.hiltViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -25,13 +27,13 @@ fun CustomerHomeScreen(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("Customer Dashboard") },
+                title = { Text(stringResource(R.string.customer_dashboard_title)) },
                 actions = {
                     IconButton(onClick = {
                         viewModel.logout()
                         onLogout()
                     }) {
-                        Icon(Icons.Default.ExitToApp, contentDescription = "Logout")
+                        Icon(Icons.Default.ExitToApp, contentDescription = stringResource(R.string.logout_content_desc))
                     }
                 }
             )
@@ -40,7 +42,7 @@ fun CustomerHomeScreen(
             ExtendedFloatingActionButton(
                 onClick = onCreateOrder,
                 icon = { Icon(Icons.Default.Add, contentDescription = null) },
-                text = { Text("New Order") }
+                text = { Text(stringResource(R.string.new_order_fab)) }
             )
         }
     ) { padding ->
@@ -61,14 +63,14 @@ fun CustomerHomeScreen(
                     modifier = Modifier.padding(20.dp)
                 ) {
                     Text(
-                        text = "Welcome back! 👋",
+                        text = stringResource(R.string.welcome_back),
                         fontSize = 24.sp,
                         fontWeight = FontWeight.Bold,
                         color = MaterialTheme.colorScheme.onPrimaryContainer
                     )
                     Spacer(modifier = Modifier.height(8.dp))
                     Text(
-                        text = "Ready to request a delivery?",
+                        text = stringResource(R.string.ready_to_request),
                         fontSize = 16.sp,
                         color = MaterialTheme.colorScheme.onPrimaryContainer.copy(alpha = 0.8f)
                     )
@@ -79,7 +81,7 @@ fun CustomerHomeScreen(
 
             // Recent orders section
             Text(
-                text = "Recent Orders",
+                text = stringResource(R.string.recent_orders_title),
                 fontSize = 20.sp,
                 fontWeight = FontWeight.SemiBold
             )
@@ -107,17 +109,17 @@ fun CustomerHomeScreen(
                         horizontalAlignment = Alignment.CenterHorizontally
                     ) {
                         Text(
-                            text = "📦",
+                            text = stringResource(R.string.no_orders_emoji),
                             fontSize = 48.sp
                         )
                         Spacer(modifier = Modifier.height(16.dp))
                         Text(
-                            text = "No orders yet",
+                            text = stringResource(R.string.no_orders_title),
                             fontSize = 18.sp,
                             fontWeight = FontWeight.Medium
                         )
                         Text(
-                            text = "Create your first delivery request!",
+                            text = stringResource(R.string.no_orders_subtitle),
                             fontSize = 14.sp,
                             color = MaterialTheme.colorScheme.onSurfaceVariant
                         )

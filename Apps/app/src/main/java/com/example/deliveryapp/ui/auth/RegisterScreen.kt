@@ -9,8 +9,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.deliveryapp.R
 import com.example.deliveryapp.domain.model.Role
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -42,7 +44,7 @@ fun RegisterScreen(
             verticalArrangement = Arrangement.Center
         ) {
             Text(
-                text = "Create Account",
+                text = stringResource(R.string.create_account_title),
                 fontSize = 32.sp,
                 fontWeight = FontWeight.Bold,
                 color = MaterialTheme.colorScheme.primary
@@ -51,7 +53,7 @@ fun RegisterScreen(
             Spacer(modifier = Modifier.height(8.dp))
             
             Text(
-                text = "Choose your role and get started",
+                text = stringResource(R.string.register_subtitle),
                 fontSize = 16.sp,
                 color = MaterialTheme.colorScheme.onSurfaceVariant
             )
@@ -61,7 +63,7 @@ fun RegisterScreen(
             OutlinedTextField(
                 value = username,
                 onValueChange = { username = it },
-                label = { Text("Username") },
+                label = { Text(stringResource(R.string.username_label)) },
                 modifier = Modifier.fillMaxWidth(),
                 singleLine = true
             )
@@ -71,7 +73,7 @@ fun RegisterScreen(
             OutlinedTextField(
                 value = password,
                 onValueChange = { password = it },
-                label = { Text("Password") },
+                label = { Text(stringResource(R.string.password_label)) },
                 modifier = Modifier.fillMaxWidth(),
                 singleLine = true,
                 visualTransformation = PasswordVisualTransformation(),
@@ -81,7 +83,7 @@ fun RegisterScreen(
             Spacer(modifier = Modifier.height(24.dp))
 
             Text(
-                text = "Select your role:",
+                text = stringResource(R.string.select_role_label),
                 fontSize = 16.sp,
                 fontWeight = FontWeight.Medium,
                 modifier = Modifier.align(Alignment.Start)
@@ -96,14 +98,14 @@ fun RegisterScreen(
                 FilterChip(
                     selected = selectedRole == Role.CUSTOMER,
                     onClick = { selectedRole = Role.CUSTOMER },
-                    label = { Text("🛒 Customer") },
+                    label = { Text(stringResource(R.string.role_customer)) },
                     modifier = Modifier.weight(1f)
                 )
 
                 FilterChip(
                     selected = selectedRole == Role.COURIER,
                     onClick = { selectedRole = Role.COURIER },
-                    label = { Text("🚴 Courier") },
+                    label = { Text(stringResource(R.string.role_courier)) },
                     modifier = Modifier.weight(1f)
                 )
             }
@@ -132,14 +134,14 @@ fun RegisterScreen(
                         color = MaterialTheme.colorScheme.onPrimary
                     )
                 } else {
-                    Text("Create Account", fontSize = 16.sp)
+                    Text(stringResource(R.string.create_account_button), fontSize = 16.sp)
                 }
             }
 
             Spacer(modifier = Modifier.height(24.dp))
 
             TextButton(onClick = onNavigateToLogin) {
-                Text("Already have an account? Sign In")
+                Text(stringResource(R.string.have_account_login))
             }
         }
     }

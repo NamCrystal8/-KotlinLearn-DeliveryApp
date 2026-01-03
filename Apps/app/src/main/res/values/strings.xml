@@ -1,3 +1,54 @@
 <resources>
     <string name="app_name">Delivery App</string>
+    
+    <!-- Auth Screens -->
+    <string name="login_title">🚚 Delivery App</string>
+    <string name="login_subtitle">Sign in to continue</string>
+    <string name="username_label">Username</string>
+    <string name="password_label">Password</string>
+    <string name="sign_in_button">Sign In</string>
+    <string name="no_account_register">Don\'t have an account? Register</string>
+    <string name="create_account_title">Create Account</string>
+    <string name="register_subtitle">Choose your role and get started</string>
+    <string name="select_role_label">Select your role:</string>
+    <string name="role_customer">🛒 Customer</string>
+    <string name="role_courier">🚴 Courier</string>
+    <string name="create_account_button">Create Account</string>
+    <string name="have_account_login">Already have an account? Sign In</string>
+    
+    <!-- Customer Screens -->
+    <string name="customer_dashboard_title">Customer Dashboard</string>
+    <string name="logout_content_desc">Logout</string>
+    <string name="new_order_fab">New Order</string>
+    <string name="welcome_back">Welcome back! 👋</string>
+    <string name="ready_to_request">Ready to request a delivery?</string>
+    <string name="recent_orders_title">Recent Orders</string>
+    <string name="no_orders_emoji">📦</string>
+    <string name="no_orders_title">No orders yet</string>
+    <string name="no_orders_subtitle">Create your first delivery request!</string>
+    <string name="create_order_title">Create Order</string>
+    <string name="back_content_desc">Back</string>
+    <string name="pickup_location_label">📍 Pickup Location</string>
+    <string name="pickup_address_hint">Pickup Address</string>
+    <string name="dropoff_location_label">📍 Dropoff Location</string>
+    <string name="dropoff_address_hint">Dropoff Address</string>
+    <string name="map_implementation_note">💡 In a full implementation, this would include a map for location selection and geocoding.</string>
+    
+    <!-- Courier Screens -->
+    <string name="courier_dashboard_title">Courier Dashboard</string>
+    <string name="ready_to_deliver">Ready to deliver! 🚴</string>
+    <string name="check_available_orders">Check available orders and start earning</string>
+    <string name="browse_available_orders">Browse Available Orders</string>
+    <string name="find_delivery_requests">Find delivery requests near you</string>
+    <string name="active_delivery_title">Active Delivery</string>
+    <string name="scooter_emoji">🛵</string>
+    <string name="no_active_delivery">No active delivery</string>
+    <string name="accept_order_hint">Accept an order to get started</string>
+    <string name="available_orders_title">Available Orders</string>
+    <string name="no_orders_available_emoji">📭</string>
+    <string name="no_orders_available_title">No orders available</string>
+    <string name="check_back_later">Check back later for new delivery requests</string>
+    <string name="order_id_format">Order #%s</string>
+    <string name="accept_order_button">Accept Order</string>
+    <string name="pin_emoji">📍 </string>
 </resources>

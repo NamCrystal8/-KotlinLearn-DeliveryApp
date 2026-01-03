@@ -6,8 +6,10 @@ import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.deliveryapp.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -22,10 +24,10 @@ fun CreateOrderScreen(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("Create Order") },
+                title = { Text(stringResource(R.string.create_order_title)) },
                 navigationIcon = {
                     IconButton(onClick = onBack) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
+                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = stringResource(R.string.back_content_desc))
                     }
                 }
             )
@@ -38,7 +40,7 @@ fun CreateOrderScreen(
                 .padding(24.dp)
         ) {
             Text(
-                text = "📍 Pickup Location",
+                text = stringResource(R.string.pickup_location_label),
                 fontSize = 16.sp,
                 color = MaterialTheme.colorScheme.primary
             )
@@ -48,7 +50,7 @@ fun CreateOrderScreen(
             OutlinedTextField(
                 value = pickupAddress,
                 onValueChange = { pickupAddress = it },
-                label = { Text("Pickup Address") },
+                label = { Text(stringResource(R.string.pickup_address_hint)) },
                 modifier = Modifier.fillMaxWidth(),
                 singleLine = true
             )
@@ -56,7 +58,7 @@ fun CreateOrderScreen(
             Spacer(modifier = Modifier.height(24.dp))
 
             Text(
-                text = "📍 Dropoff Location",
+                text = stringResource(R.string.dropoff_location_label),
                 fontSize = 16.sp,
                 color = MaterialTheme.colorScheme.secondary
             )
@@ -66,7 +68,7 @@ fun CreateOrderScreen(
             OutlinedTextField(
                 value = dropoffAddress,
                 onValueChange = { dropoffAddress = it },
-                label = { Text("Dropoff Address") },
+                label = { Text(stringResource(R.string.dropoff_address_hint)) },
                 modifier = Modifier.fillMaxWidth(),
                 singleLine = true
             )
@@ -81,7 +83,7 @@ fun CreateOrderScreen(
                 )
             ) {
                 Text(
-                    text = "💡 In a full implementation, this would include a map for location selection and geocoding.",
+                    text = stringResource(R.string.map_implementation_note),
                     modifier = Modifier.padding(16.dp),
                     fontSize = 14.sp,
                     color = MaterialTheme.colorScheme.onTertiaryContainer
@@ -106,7 +108,7 @@ fun CreateOrderScreen(
                         color = MaterialTheme.colorScheme.onPrimary
                     )
                 } else {
-                    Text("Create Order", fontSize = 16.sp)
+                    Text(stringResource(R.string.create_order_title), fontSize = 16.sp)
                 }
             }
         }

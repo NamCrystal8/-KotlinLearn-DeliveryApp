@@ -17,6 +17,10 @@ navigationCompose = "2.8.4"
 datastore = "1.1.1"
 coroutines = "1.8.1"
 ksp = "2.0.21-1.0.25"
+# Google Maps & Location
+playServicesLocation = "21.3.0"
+playServicesMaps = "19.2.0"
+mapsCompose = "6.4.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -56,6 +60,11 @@ lifecycle-viewmodel-compose = { group = "androidx.lifecycle", name = "lifecycle-
 
 # Coroutines
 kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutines" }
+
+# Google Maps & Location
+play-services-location = { group = "com.google.android.gms", name = "play-services-location", version.ref = "playServicesLocation" }
+play-services-maps = { group = "com.google.android.gms", name = "play-services-maps", version.ref = "playServicesMaps" }
+maps-compose = { group = "com.google.maps.android", name = "maps-compose", version.ref = "mapsCompose" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

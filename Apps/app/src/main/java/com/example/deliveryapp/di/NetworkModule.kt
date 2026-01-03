@@ -1,6 +1,7 @@
 package com.example.deliveryapp.di
 
 import android.content.Context
+import com.example.deliveryapp.BuildConfig
 import com.example.deliveryapp.data.local.TokenManager
 import com.example.deliveryapp.data.remote.api.AuthApi
 import com.example.deliveryapp.data.remote.api.OrderApi
@@ -19,9 +20,7 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
-    // Use your computer's local IP for physical device testing
-    // Change this to 10.0.2.2 for emulator, or your actual IP for device
-    private const val BASE_URL = "http://192.168.2.158:8080/"
+
 
     @Provides
     @Singleton
@@ -33,7 +32,6 @@ object NetworkModule {
     @Singleton
     fun provideLoggingInterceptor(): HttpLoggingInterceptor {
         return HttpLoggingInterceptor().apply {
-            // Use HEADERS instead of BODY to avoid logging sensitive data like passwords
             level = HttpLoggingInterceptor.Level.HEADERS
         }
     }
@@ -60,7 +58,7 @@ object NetworkModule {
     @Singleton
     fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {
         return Retrofit.Builder()
-            .baseUrl(BASE_URL)
+            .baseUrl(BuildConfig.BASE_URL)
             .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create())
             .build()

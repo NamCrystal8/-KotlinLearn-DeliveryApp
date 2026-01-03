@@ -6,14 +6,18 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.navArgument
 import com.example.deliveryapp.domain.model.Role
 import com.example.deliveryapp.ui.auth.AuthViewModel
 import com.example.deliveryapp.ui.auth.LoginScreen
 import com.example.deliveryapp.ui.auth.RegisterScreen
 import com.example.deliveryapp.ui.customer.CreateOrderScreen
 import com.example.deliveryapp.ui.customer.CustomerHomeScreen
+import com.example.deliveryapp.ui.customer.OrderTrackingScreen
+import com.example.deliveryapp.ui.courier.ActiveDeliveryScreen
 import com.example.deliveryapp.ui.courier.AvailableOrdersScreen
 import com.example.deliveryapp.ui.courier.CourierHomeScreen
 
@@ -111,10 +115,41 @@ fun NavGraph(
 
         composable(Screen.AvailableOrders.route) {
             AvailableOrdersScreen(
-                onOrderAccepted = {
-                    navController.popBackStack()
+                onOrderAccepted = { orderId ->
+                    // Navigate to active delivery after accepting
+                    navController.navigate(Screen.ActiveDelivery.createRoute(orderId)) {
+                        popUpTo(Screen.CourierHome.route)
+                    }
                 },
                 onBack = {
+                    navController.popBackStack()
+                }
+            )
+        }
+        
+        // Order Tracking Screen (Customer)
+        composable(
+            route = Screen.TrackOrder.route,
+            arguments = listOf(navArgument("orderId") { type = NavType.LongType })
+        ) { backStackEntry ->
+            val orderId = backStackEntry.arguments?.getLong("orderId") ?: 0L
+            OrderTrackingScreen(
+                orderId = orderId,
+                onNavigateBack = {
+                    navController.popBackStack()
+                }
+            )
+        }
+        
+        // Active Delivery Screen (Courier)
+        composable(
+            route = Screen.ActiveDelivery.route,
+            arguments = listOf(navArgument("orderId") { type = NavType.LongType })
+        ) { backStackEntry ->
+            val orderId = backStackEntry.arguments?.getLong("orderId") ?: 0L
+            ActiveDeliveryScreen(
+                orderId = orderId,
+                onNavigateBack = {
                     navController.popBackStack()
                 }
             )

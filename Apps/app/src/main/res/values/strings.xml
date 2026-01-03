@@ -51,4 +51,33 @@
     <string name="order_id_format">Order #%s</string>
     <string name="accept_order_button">Accept Order</string>
     <string name="pin_emoji">📍 </string>
+    
+    <!-- Location Service Notification -->
+    <string name="location_channel_name">Location Tracking</string>
+    <string name="location_channel_description">Shows when courier location is being tracked</string>
+    <string name="location_notification_title">Tracking Active Delivery</string>
+    <string name="location_notification_text">Your location is being shared with the customer</string>
+    
+    <!-- Location Permissions -->
+    <string name="permission_required_title">Permission Required</string>
+    <string name="location_permission_rationale">Location permission is required to share your position with customers during deliveries. This helps customers track their orders in real-time.</string>
+    <string name="grant_permission">Grant Permission</string>
+    <string name="cancel">Cancel</string>
+    <string name="background_location_title">Background Location</string>
+    <string name="background_location_rationale">Allow background location access so customers can track your position even when the app is minimized.</string>
+    <string name="allow_background">Allow</string>
+    <string name="skip">Skip</string>
+    
+    <!-- Order Tracking Screen (Customer) -->
+    <string name="tracking_order_title">Tracking Order #%d</string>
+    <string name="order_number">Order #%d</string>
+    <string name="courier_on_the_way">Courier is on the way!</string>
+    <string name="waiting_for_courier_location">Waiting for courier location…</string>
+    
+    <!-- Active Delivery Screen (Courier) -->
+    <string name="current_location_display">📍 %.6f, %.6f</string>
+    <string name="start_tracking">Start Location Tracking</string>
+    <string name="stop_tracking">Stop Tracking</string>
+    <string name="picked_up">Picked Up</string>
+    <string name="delivered">Delivered</string>
 </resources>

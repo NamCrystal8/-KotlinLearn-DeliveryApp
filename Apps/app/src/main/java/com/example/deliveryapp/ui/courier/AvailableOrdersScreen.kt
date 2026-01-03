@@ -19,7 +19,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun AvailableOrdersScreen(
-    onOrderAccepted: () -> Unit,
+    onOrderAccepted: (Long) -> Unit,
     onBack: () -> Unit,
     viewModel: CourierViewModel = hiltViewModel()
 ) {
@@ -83,8 +83,8 @@ fun AvailableOrdersScreen(
                     OrderCard(
                         order = order,
                         onAccept = {
-                            // TODO: Implement order acceptance
-                            onOrderAccepted()
+                            // TODO: Call API to accept order, then navigate
+                            onOrderAccepted(order.id)
                         }
                     )
                 }
